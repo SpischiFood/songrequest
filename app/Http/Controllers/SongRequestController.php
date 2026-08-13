@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\SongRequest;
+
+class SongRequestController extends Controller
+{
+    public function create()
+    {
+        return view('request');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'artist' => 'required|string|max:50',
+            'song' => 'required|string|max:50',
+        ],
+        [
+        'artist.required' => 'Vul een artiest in.',
+        'artist.string' => 'De artiest moet tekst zijn.',
+        'artist.max' => 'De artiest mag maximaal 50 tekens bevatten.',
+
+        'song.required' => 'Vul een liedje in.',
+        'song.string' => 'Het liedje moet tekst zijn.',
+        'song.max' => 'Het liedje mag maximaal 50 tekens bevatten.',
+
+        'name.required' => 'Vul je naam in.',
+        'name.string' => 'Je naam moet tekst zijn.',
+        'name.max' => 'Je naam mag maximaal 50 tekens bevatten.',
+    ]);
+
+        SongRequest::create($validated);
+        return redirect('/request');
+    }
+}
