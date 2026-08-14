@@ -11,3 +11,5 @@ Route::get('/', function () {
 Route::get('/request', [SongRequestController::class, 'create']);
 Route::post('/request', [SongRequestController::class, 'store']);
 
+Route::get('/dj', [SongRequestController::class, 'index']);
+

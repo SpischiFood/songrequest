@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SongRequest;
+use App\Enums\SongRequestStatus;
 
 class SongRequestController extends Controller
 {
@@ -35,5 +36,15 @@ class SongRequestController extends Controller
 
         SongRequest::create($validated);
         return redirect('/request');
+    }
+
+    public function index(){
+        $songRequests = SongRequest::where(
+            'status',
+            SongRequestStatus::Pending
+        )
+        ->orderBy('created_at', 'asc')
+        ->get();
+        return view('dj', ['songRequests' => $songRequests]);
     }
 }
