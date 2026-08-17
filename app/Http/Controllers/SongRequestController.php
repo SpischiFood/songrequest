@@ -45,6 +45,6 @@ class SongRequestController extends Controller
         )
         ->orderBy('created_at', 'asc')
         ->get();
-        return view('dj', ['songRequests' => $songRequests]);
+        return view('queue', ['songRequests' => $songRequests]);
     }
 }
