@@ -19,4 +19,6 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/dj', [DjController::class, 'index'])->middleware('auth');
+Route::post('/dj/song/{songRequest}/play', [DjController::class, 'play'])->middleware('auth');
+Route::post('/dj/song/{songRequest}/reject', [DjController::class, 'reject'])->middleware('auth');
 

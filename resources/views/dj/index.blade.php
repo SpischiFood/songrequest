@@ -8,6 +8,29 @@
 <body>
     <h1>Dj dashboard</h1>
     <h2>Welkom {{ Auth::user()->name }}</h2>
-    <p>Er staan nog x nummers in de wachtrij.</p>
+    <p>Er staan nog {{ $queueCount }} nummers in de wachtrij.</p>
+
+    @foreach ($pendingRequests as $songRequest)
+
+        <div>
+            <strong>
+                {{ $songRequest->artist }} - {{ $songRequest->song}}
+            </strong>{{ $songRequest->created_at->format('H:i') }}
+            <p>
+                Aangevraagd door:
+                {{ $songRequest->name }}
+            </p>
+            <form action="/dj/song/{{ $songRequest->id }}/play" method="post">
+                @csrf
+                <button type="submit">Play</button>
+            </form>
+
+            <form action="/dj/song/{{ $songRequest->id }}/reject" method="post">
+                @csrf
+                <button type="submit">Reject</button>
+            </form>
+
+        </div>
+    @endforeach
 </body>
 </html>
