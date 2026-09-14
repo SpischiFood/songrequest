@@ -29,4 +29,13 @@ class AuthController extends Controller
             'login' => 'E-mailadres of wachtwoord is fout.',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
+    }
 }

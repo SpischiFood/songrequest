@@ -9,6 +9,7 @@
     <h1>Dj dashboard</h1>
     <h2>Welkom {{ Auth::user()->name }}</h2>
     <p>Er staan nog {{ $queueCount }} nummers in de wachtrij.</p>
+    <a href="/dj/users/create">Gebruiker aanmaken</a>
 
     @foreach ($pendingRequests as $songRequest)
 
@@ -32,5 +33,12 @@
 
         </div>
     @endforeach
+
+    <form action="{{ route('logout') }}" method="post">
+        @csrf
+
+        <button type="submit">Uitloggen</button>
+    </form>
+
 </body>
 </html>
