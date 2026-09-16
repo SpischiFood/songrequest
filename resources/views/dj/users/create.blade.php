@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebruiker toevoegen</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Gebruiker toevoegen')
+
+@section('content')
     <h1>Nieuwe gebruiker toevoegen</h1>
 
     <form action="{{ route('users.store') }}" method="post">
@@ -37,8 +34,6 @@
 
         <button type="submit">Gebruiker aanmaken</button>   
     </form>
-    
-    <a href="/dj">Terug naar dashboard</a>
 
-</body>
-</html>
+
+@endsection

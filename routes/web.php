@@ -7,9 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DjController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'home')->name('home');
 
 Route::get('/request', [SongRequestController::class, 'create'])->name('request.create');
 Route::post('/request', [SongRequestController::class, 'store']);

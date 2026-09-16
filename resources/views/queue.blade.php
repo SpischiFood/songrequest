@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wachtrij</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Wachtrij')
+
+@section('content')
     <h1>Wachtrij</h1>
 
     @foreach ($songRequests as $songRequest)
 
-        <div>
+        <div class="card">
             <strong>
                 {{ $songRequest->artist }} - {{ $songRequest->song}}
             </strong>{{ $songRequest->created_at->format('H:i') }}
@@ -23,5 +20,4 @@
 
     <h1>Geschiedenis</h1>
     
-</body>
-</html>
+@endsection

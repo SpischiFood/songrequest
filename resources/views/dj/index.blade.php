@@ -14,30 +14,44 @@
 
     @foreach ($pendingRequests as $songRequest)
 
-        <div>
-            <strong>
-                {{ $songRequest->artist }} -
-                {{ $songRequest->song }}
-            </strong>
+        <div class="card dj-song-card">
 
-            {{ $songRequest->created_at->format('H:i') }}
+            <div class="dj-song-info">
+                <p>
+                    <strong>
+                        {{ $songRequest->artist }} -
+                        {{ $songRequest->song }}
+                    </strong>
+                </p>
 
-            <p>
+                <p>
                 Aangevraagd door:
                 {{ $songRequest->name ?? 'Anoniem' }}
-            </p>
+                </p>
+            </div>
 
-            <form method="POST"
-                  action="{{ route('dj.song.play', $songRequest) }}">
-                @csrf
-                <button type="submit">Play</button>
-            </form>
+            <div class="dj-song-actions">
 
-            <form method="POST"
-                  action="{{ route('dj.song.reject', $songRequest) }}">
-                @csrf
-                <button type="submit">Reject</button>
-            </form>
+                <form method="POST"
+                    action="{{ route('dj.song.play', $songRequest) }}">
+                    @csrf
+
+                    <button type="submit" class="dj-play-btn">
+                        ▶ Play
+                    </button>
+                </form>
+
+                <form method="POST"
+                    action="{{ route('dj.song.reject', $songRequest) }}">
+                    @csrf
+
+                    <button type="submit" class="dj-reject-btn">
+                        ✕ Reject
+                    </button>
+                </form>
+
+            </div>
+
         </div>
 
     @endforeach
