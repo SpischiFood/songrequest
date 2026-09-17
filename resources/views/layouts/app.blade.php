@@ -14,6 +14,18 @@
           href="{{ asset('css/app.css') }}">
 </head>
 
+<script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.setAttribute('aria-label', isOpen ? 'Navigatiemenu sluiten' : 'Navigatiemenu openen');
+        navToggle.textContent = isOpen ? 'X' : '☰';
+    });
+</script>
+
 <body>
 
     <nav class="navbar">
@@ -25,7 +37,16 @@
                 ROBBOCO
             </a>
 
-            <div class="nav-links">
+            <button
+                type="button"
+                class="nav-toggle"
+                aria-label="Navigatiemenu openen"
+                aria-expanded="false"
+                aria-controls="nav-links">
+                ☰
+            </button>
+
+            <div class="nav-links" id="nav-links">
 
                 <a href="{{ route('home') }}">
                     Home

@@ -39,6 +39,9 @@ h2 {
 ======================================== */
 
 .navbar {
+    position: relative;
+    z-index: 1000;
+
     background: #171b29;
     color: white;
     padding: 16px 24px;
@@ -51,6 +54,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 24px;
     flex-wrap: wrap;
 }
@@ -59,6 +63,7 @@ h2 {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .nav-brand:hover {
@@ -69,6 +74,7 @@ h2 {
 .nav-links {
     display: flex;
     align-items: center;
+
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -83,6 +89,12 @@ h2 {
 
 .nav-links form {
     margin: 0;
+}
+
+/* Hamburgermenu verbergen op desktop */
+
+.nav-toggle {
+    display: none;
 }
 
 
@@ -103,6 +115,7 @@ h2 {
 
 .card {
     background: white;
+
     border-radius: 12px;
     padding: 28px;
     margin-bottom: 20px;
@@ -203,15 +216,6 @@ button:hover,
    7. DJ DASHBOARD - NUMMERKAARTEN
 ======================================== */
 
-/*
-   De kaart bestaat uit twee delen:
-
-   Links: nummerinformatie
-   Rechts: Play en Reject
-
-   Flexbox zet beide delen naast elkaar.
-*/
-
 .dj-song-card {
     display: flex;
     align-items: center;
@@ -219,7 +223,6 @@ button:hover,
 
     gap: 20px;
 
-    /* Minder verticale ruimte dan een gewone card */
     padding: 16px 24px;
 }
 
@@ -237,104 +240,10 @@ button:hover,
     margin: 5px 0;
 }
 
-/* ========================================
-   BEDANKPAGINA
-======================================== */
-
-.thank-you-card {
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.thank-you-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 20px;
-
-    background: #dcfce7;
-    color: #15803d;
-
-    border-radius: 50%;
-
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.thank-you-message {
-    color: #64748b;
-    margin-bottom: 25px;
-}
-
-.queue-count-box {
-    background: #eef2ff;
-    border-radius: 12px;
-
-    padding: 20px;
-    margin: 25px 0;
-}
-
-.queue-count-number {
-    display: block;
-
-    font-size: 42px;
-    font-weight: bold;
-    color: #4f46e5;
-}
-
-.queue-count-box p {
-    margin: 0;
-    color: #3730a3;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 10px;
-    margin: 20px 0 30px;
-}
-
-.social-button {
-    display: inline-block;
-
-    padding: 10px 16px;
-
-    background: #f3f5f9;
-    color: #171b29;
-
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-
-    font-weight: bold;
-}
-
-.social-button:hover {
-    background: #e5e7eb;
-    text-decoration: none;
-}
-
-.home-button {
-    display: block;
-    width: 100%;
-
-    padding: 14px 20px;
-    font-size: 17px;
-}
 
 /* ========================================
    9. DJ DASHBOARD - ACTIEKNOPPEN
 ======================================== */
-
-/*
-   De twee formulieren worden naast elkaar
-   geplaatst met een tussenruimte van 10px.
-*/
 
 .dj-song-actions {
     display: flex;
@@ -349,11 +258,7 @@ button:hover,
     margin: 0;
 }
 
-
-/*
-   Grote knoppen voor gemakkelijk gebruik
-   tijdens het draaien.
-*/
+/* Grote knoppen voor gebruik tijdens het draaien */
 
 .dj-song-actions button {
     width: 160px;
@@ -391,53 +296,156 @@ button:hover,
     background: #b91c1c;
 }
 
-/* Succesmelding */
+
+/* ========================================
+   10. MELDINGEN EN VALIDATIE
+======================================== */
 
 .alert-success {
     background: #dcfce7;
     color: #166534;
+
     border: 1px solid #86efac;
 
     padding: 12px 16px;
     border-radius: 8px;
+
     margin-bottom: 20px;
 }
 
-/* Validatiefouten */
-
 .error-message {
     color: #dc2626;
+
     font-size: 14px;
+
     margin-top: -8px;
     margin-bottom: 15px;
 }
 
-/* Wachtrij */
+
+/* ========================================
+   11. WACHTRIJ
+======================================== */
 
 .song-time {
     display: inline-block;
+
     margin-left: 10px;
+
     color: #64748b;
     font-size: 14px;
 }
 
 
 /* ========================================
-   10. RESPONSIVE - TABLET
+   12. BEDANKPAGINA
+======================================== */
+
+.thank-you-card {
+    max-width: 650px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.thank-you-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    border-radius: 50%;
+
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.thank-you-message {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.queue-count-box {
+    background: #eef2ff;
+
+    border-radius: 12px;
+
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.queue-count-number {
+    display: block;
+
+    font-size: 42px;
+    font-weight: bold;
+
+    color: #4f46e5;
+}
+
+.queue-count-box p {
+    margin: 0;
+    color: #3730a3;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 20px 0 30px;
+}
+
+.social-button {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    background: #f3f5f9;
+    color: #171b29;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.social-button:hover {
+    background: #e5e7eb;
+    text-decoration: none;
+}
+
+.home-button {
+    display: block;
+    width: 100%;
+
+    padding: 14px 20px;
+
+    font-size: 17px;
+}
+
+
+/* ========================================
+   13. RESPONSIVE - TABLET
 ======================================== */
 
 @media (max-width: 800px) {
 
-    /*
-       Op kleinere schermen mag de tekst
-       boven de knoppen komen.
-
-       De knoppen blijven naast elkaar.
-    */
+    /* DJ-tekst boven de actieknoppen */
 
     .dj-song-card {
         flex-direction: column;
         align-items: stretch;
+
         gap: 15px;
     }
 
@@ -457,24 +465,147 @@ button:hover,
 
 
 /* ========================================
-   11. RESPONSIVE - SMARTPHONE
+   14. RESPONSIVE - SMARTPHONE
 ======================================== */
 
 @media (max-width: 600px) {
 
+    /* ------------------------------------
+       NAVBAR
+    ------------------------------------ */
+
     .navbar {
-        padding: 16px;
+        padding: 10px 16px;
     }
 
     .nav-container {
-        align-items: flex-start;
-        flex-direction: column;
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: space-between;
+
         gap: 12px;
     }
 
-    .nav-links {
-        gap: 12px;
+    .nav-brand {
+        font-size: 20px;
     }
+
+    /* Hamburgermenu tonen */
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        flex-shrink: 0;
+
+        padding: 0;
+
+        background: transparent;
+        color: white;
+
+        border: 1px solid #4b5563;
+        border-radius: 8px;
+
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .nav-toggle:hover {
+        background: #374151;
+    }
+
+    .nav-toggle:focus-visible {
+        outline: 2px solid #a5b4fc;
+        outline-offset: 3px;
+    }
+
+    /* Menu standaard verbergen */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        z-index: 1000;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 8px;
+
+        background: #171b29;
+
+        border: 1px solid #374151;
+        border-radius: 10px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Menu openen via JavaScript */
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    /* Navigatielinks */
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px;
+
+        border-radius: 6px;
+    }
+
+    .nav-links a:hover {
+        background: #374151;
+        text-decoration: none;
+    }
+
+    /* Logoutformulier */
+
+    .nav-links form {
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-links form button {
+        width: 100%;
+
+        padding: 12px;
+
+        background: transparent;
+        color: #d1d5db;
+
+        text-align: left;
+        border-radius: 6px;
+    }
+
+    .nav-links form button:hover {
+        background: #374151;
+        color: white;
+    }
+
+
+    /* ------------------------------------
+       ALGEMENE PAGINA-INDELING
+    ------------------------------------ */
 
     .container {
         margin: 20px auto;
@@ -490,7 +621,9 @@ button:hover,
     }
 
 
-    /* DJ-kaarten */
+    /* ------------------------------------
+       DJ-DASHBOARD
+    ------------------------------------ */
 
     .dj-song-card {
         padding: 15px;
@@ -503,6 +636,115 @@ button:hover,
     .dj-song-actions button {
         height: 65px;
         font-size: 18px;
+    }
+
+}
+
+
+/* ========================================
+   15. EXTRA COMPACTE BEDANKPAGINA
+       OP KLEINE SMARTPHONES
+======================================== */
+
+@media (max-width: 480px) {
+
+    /*
+       Minder ruimte tussen de navbar
+       en de bedankpagina.
+    */
+
+    .container:has(.thank-you-card) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Compactere kaart */
+
+    .thank-you-card {
+        padding: 12px;
+        margin-bottom: 0;
+    }
+
+    /* Hoofdtitel */
+
+    .thank-you-card h1 {
+        font-size: 21px;
+        line-height: 1.25;
+
+        margin: 6px 0;
+    }
+
+    /* Tussentitel */
+
+    .thank-you-card h2 {
+        font-size: 17px;
+        line-height: 1.3;
+
+        margin: 8px 0 4px;
+    }
+
+    /* Alle paragrafen compacter */
+
+    .thank-you-card p {
+        margin: 5px 0;
+
+        font-size: 13px;
+        line-height: 1.35;
+    }
+
+    /* Vinkje */
+
+    .thank-you-icon {
+        width: 40px;
+        height: 40px;
+
+        margin-bottom: 6px;
+
+        font-size: 24px;
+    }
+
+    /* Succesmelding */
+
+    .thank-you-message {
+        margin-bottom: 6px;
+    }
+
+    /* Wachtrijteller */
+
+    .queue-count-box {
+        padding: 8px;
+
+        margin: 8px 0;
+
+        border-radius: 8px;
+    }
+
+    .queue-count-number {
+        font-size: 28px;
+        line-height: 1.1;
+    }
+
+    /* Sociale media */
+
+    .social-links {
+        gap: 6px;
+
+        margin: 8px 0 12px;
+    }
+
+    .social-button {
+        padding: 7px 9px;
+
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    /* Homeknop */
+
+    .home-button {
+        padding: 9px 12px;
+
+        font-size: 14px;
     }
 
 }

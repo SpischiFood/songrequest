@@ -13,7 +13,7 @@
             @csrf
 
             @error('login')
-                <p>{{ $message }}</p>
+                <p class='error-message'>{{ $message }}</p>
             @enderror
 
             <div>
