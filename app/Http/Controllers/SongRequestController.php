@@ -16,7 +16,7 @@ class SongRequestController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:50',
+            'name' => 'nullable|string|max:50',
             'artist' => 'required|string|max:50',
             'song' => 'required|string|max:50',
         ],
@@ -29,13 +29,12 @@ class SongRequestController extends Controller
         'song.string' => 'Het liedje moet tekst zijn.',
         'song.max' => 'Het liedje mag maximaal 50 tekens bevatten.',
 
-        'name.required' => 'Vul je naam in.',
         'name.string' => 'Je naam moet tekst zijn.',
         'name.max' => 'Je naam mag maximaal 50 tekens bevatten.',
     ]);
 
         SongRequest::create($validated);
-        return redirect('/request');
+        return redirect()->route('request.create')->with('success', 'Je nummer is toegevoegd aan de wachtrij.');
     }
 
     public function index(){
