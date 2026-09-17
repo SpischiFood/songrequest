@@ -14,17 +14,6 @@
           href="{{ asset('css/app.css') }}">
 </head>
 
-<script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        navToggle.setAttribute('aria-label', isOpen ? 'Navigatiemenu sluiten' : 'Navigatiemenu openen');
-        navToggle.textContent = isOpen ? 'X' : '☰';
-    });
-</script>
 
 <body>
 
@@ -100,6 +89,18 @@
         @yield('content')
 
     </main>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+    
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Navigatiemenu sluiten' : 'Navigatiemenu openen');
+            navToggle.textContent = isOpen ? 'X' : '☰';
+    });
+    </script>
 
 </body>
 
