@@ -5,19 +5,26 @@
 @section('content')
     <h1>Wachtrij</h1>
 
-    @foreach ($songRequests as $songRequest)
+    @forelse ($songRequests as $songRequest)
 
         <div class="card">
             <strong>
                 {{ $songRequest->artist }} - {{ $songRequest->song}}
-            </strong>{{ $songRequest->created_at->format('H:i') }}
+            </strong>
+            <span class="song-time">
+                {{ $songRequest->created_at->format('H:i') }}
+            </span>
             <p>
                 Aangevraagd door:
-                {{ $songRequest->name }}
+                {{ $songRequest->name ?: 'Anoniem' }}
             </p>
         </div>
-    @endforeach
 
-    <h1>Geschiedenis</h1>
+    @empty
+        <div class="card">
+            <p>Er staan momenteel geen nummers in de wachtrij. Vraag gerust een liedje aan!</p>
+            <a href="{{ route('request.create') }}" class="btn">Nummer aanvragen</a>
+        </div>
+    @endforelse
     
 @endsection

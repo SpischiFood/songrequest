@@ -237,6 +237,95 @@ button:hover,
     margin: 5px 0;
 }
 
+/* ========================================
+   BEDANKPAGINA
+======================================== */
+
+.thank-you-card {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.thank-you-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    border-radius: 50%;
+
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.thank-you-message {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.queue-count-box {
+    background: #eef2ff;
+    border-radius: 12px;
+
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.queue-count-number {
+    display: block;
+
+    font-size: 42px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.queue-count-box p {
+    margin: 0;
+    color: #3730a3;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    margin: 20px 0 30px;
+}
+
+.social-button {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    background: #f3f5f9;
+    color: #171b29;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.social-button:hover {
+    background: #e5e7eb;
+    text-decoration: none;
+}
+
+.home-button {
+    display: block;
+    width: 100%;
+
+    padding: 14px 20px;
+    font-size: 17px;
+}
 
 /* ========================================
    9. DJ DASHBOARD - ACTIEKNOPPEN
@@ -321,6 +410,15 @@ button:hover,
     font-size: 14px;
     margin-top: -8px;
     margin-bottom: 15px;
+}
+
+/* Wachtrij */
+
+.song-time {
+    display: inline-block;
+    margin-left: 10px;
+    color: #64748b;
+    font-size: 14px;
 }
 
 

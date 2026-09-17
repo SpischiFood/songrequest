@@ -11,8 +11,10 @@ Route::view('/', 'home')->name('home');
 
 Route::get('/request', [SongRequestController::class, 'create'])->name('request.create');
 Route::post('/request', [SongRequestController::class, 'store']);
+Route::get('/request/thanks', [SongRequestController::class, 'thanks'])->name('request.thanks');
 
 Route::get('/queue', [SongRequestController::class, 'index'])->name('queue.index');
+
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);

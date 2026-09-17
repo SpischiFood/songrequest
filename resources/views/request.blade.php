@@ -16,7 +16,7 @@
         <form method="POST" action="/request">
             @csrf
             <div>
-                <label for="name">Naam aanvrager (indien leeg anonniem)</label>
+                <label for="name">Naam aanvrager (indien leeg: Anoniem)</label>
                 <input type="text" id="name" name="name" maxlength="50" value="{{ old('name') }}">
                 @error('name')
                     <p>{{ $message }}</p>

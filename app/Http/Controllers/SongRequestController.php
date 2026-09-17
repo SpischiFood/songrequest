@@ -34,7 +34,7 @@ class SongRequestController extends Controller
     ]);
 
         SongRequest::create($validated);
-        return redirect()->route('request.create')->with('success', 'Je nummer is toegevoegd aan de wachtrij.');
+        return redirect()->route('request.thanks')->with('success', 'Je nummer is toegevoegd aan de wachtrij.');
     }
 
     public function index(){
@@ -45,5 +45,16 @@ class SongRequestController extends Controller
         ->orderBy('created_at', 'asc')
         ->get();
         return view('queue', ['songRequests' => $songRequests]);
+    }
+
+    public function thanks()
+    {
+        if (!session()->has('success')) {
+            return redirect()->route('request.create');
+        }
+
+        $queueCount = SongRequest::where('status', SongRequestStatus::Pending)->count();
+
+        return view('request-thanks', ['queueCount' => $queueCount]);
     }
 }

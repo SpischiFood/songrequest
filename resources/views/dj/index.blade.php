@@ -9,7 +9,10 @@
     <h2>Welkom {{ Auth::user()->name }}</h2>
 
     <p>
-        Er staan nog {{ $queueCount }} nummers in de wachtrij.
+        Er {{ $queueCount === 1 ? 'staat' : 'staan' }} nog
+        {{ $queueCount === 0 ? 'geen' : $queueCount }}
+        {{ $queueCount === 1 ? 'nummer' : 'nummers' }}
+        in de wachtrij.
     </p>
 
     @foreach ($pendingRequests as $songRequest)
