@@ -38,21 +38,21 @@
 
         <div class="social-links">
 
-            <a href="#"
+            <a href="https://www.facebook.com/r0bb0c0/"
                class="social-button"
                target="_blank"
                rel="noopener noreferrer">
                 Facebook
             </a>
 
-            <a href="#"
+            <a href="https://www.instagram.com/r0bb0c0/"
                class="social-button"
                target="_blank"
                rel="noopener noreferrer">
                 Instagram
             </a>
 
-            <a href="#"
+            <a href="https://soundcloud.com/robbocoo"
                class="social-button"
                target="_blank"
                rel="noopener noreferrer">
